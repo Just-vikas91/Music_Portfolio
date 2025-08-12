@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Just-vikas91/Music_Portfolio/static/css/main.79d7934f.css",
-    "main.js": "/Just-vikas91/Music_Portfolio/static/js/main.b8fe452d.js",
-    "static/js/453.a6dca182.chunk.js": "/Just-vikas91/Music_Portfolio/static/js/453.a6dca182.chunk.js",
-    "index.html": "/Just-vikas91/Music_Portfolio/index.html",
-    "main.79d7934f.css.map": "/Just-vikas91/Music_Portfolio/static/css/main.79d7934f.css.map",
-    "main.b8fe452d.js.map": "/Just-vikas91/Music_Portfolio/static/js/main.b8fe452d.js.map",
-    "453.a6dca182.chunk.js.map": "/Just-vikas91/Music_Portfolio/static/js/453.a6dca182.chunk.js.map"
+    "main.css": "/Music_Portfolio.github.io/static/css/main.79d7934f.css",
+    "main.js": "/Music_Portfolio.github.io/static/js/main.20b49efc.js",
+    "static/js/453.a6dca182.chunk.js": "/Music_Portfolio.github.io/static/js/453.a6dca182.chunk.js",
+    "index.html": "/Music_Portfolio.github.io/index.html",
+    "main.79d7934f.css.map": "/Music_Portfolio.github.io/static/css/main.79d7934f.css.map",
+    "main.20b49efc.js.map": "/Music_Portfolio.github.io/static/js/main.20b49efc.js.map",
+    "453.a6dca182.chunk.js.map": "/Music_Portfolio.github.io/static/js/453.a6dca182.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.79d7934f.css",
-    "static/js/main.b8fe452d.js"
+    "static/js/main.20b49efc.js"
   ]
 }
