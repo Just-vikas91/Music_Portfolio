@@ -20,6 +20,6 @@
      "outDir": "./dist", 
     "rootDir": "./src"   
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "server.js"],
   "exclude": ["node_modules"]
 }

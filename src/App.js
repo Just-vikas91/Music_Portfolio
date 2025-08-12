@@ -1,8 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { initializeCalendar } from "./calendar";
-
-import FullCalendar from "@fullcalendar/react";
-import dayGridPlugin from "@fullcalendar/daygrid";
 
 import {
   Play,
@@ -29,15 +25,26 @@ function App() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Handle form submission logic here
-  };
 
-  useEffect(() => {
-    initializeCalendar();
-  }, []);
+    try {
+      const res = await fetch("http://localhost:5000/api/send-enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await res.json();
+      alert(result.message || "Sent!");
+
+      setFormData({ name: "", email: "", subject:"", message: "" });
+      e.target.reset();
+    } catch (err) {
+      console.error(err);
+      alert("Failed to send message");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -47,7 +54,7 @@ function App() {
           <div className="flex justify-between items-center py-4">
             <div className="text-xl font-bold flex flex-row">
               <a href="#home"></a>
-              <span className="ml-1 font-serif">Lalit Kushwaha</span>
+              <span className="ml-1 font-serif">Hidden Pearl</span>
             </div>
             <div className="hidden md:flex space-x-8">
               <a
@@ -276,47 +283,47 @@ function App() {
       {/* Gallery Section */}
       <section id="gallery" className="py-20 px-4 bg-gray-900">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16">GALLERY</h2>
+          <h2 className="text-4xl font-bold text-center mb-16">Instuments</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             <div className="group cursor-pointer">
               <img
-                src="https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
-                alt="Performance photo 1"
+                src="https://cdn.pixabay.com/photo/2023/11/26/10/26/piano-8413277_960_720.jpg"
+                alt="Piano"
                 className="w-full h-60 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="group cursor-pointer">
               <img
-                src="https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
-                alt="Performance photo 2"
+                src="https://images.pexels.com/photos/16743021/pexels-photo-16743021.jpeg"
+                alt="Tabla"
                 className="w-full h-60 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="group cursor-pointer">
               <img
-                src="https://images.pexels.com/photos/1389429/pexels-photo-1389429.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
-                alt="Performance photo 3"
+                src="https://cdn.pixabay.com/photo/2016/10/21/18/58/flute-1758799_960_720.jpg"
+                alt="Flute"
                 className="w-full h-60 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="group cursor-pointer">
               <img
-                src="https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
-                alt="Portrait photo"
+                src="https://cdn.pixabay.com/photo/2017/07/14/21/57/instrument-2505099_1280.jpg"
+                alt="violin"
                 className="w-full h-60 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="group cursor-pointer">
               <img
                 src="https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
-                alt="Behind the scenes"
+                alt="Guitar"
                 className="w-full h-60 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="group cursor-pointer">
               <img
-                src="https://images.pexels.com/photos/1840608/pexels-photo-1840608.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
-                alt="Studio session"
+                src="https://images.pexels.com/photos/237464/pexels-photo-237464.jpeg"
+                alt="Drum"
                 className="w-full h-60 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
               />
             </div>
@@ -387,10 +394,8 @@ function App() {
                   other business inquiries, contact the team below for
                   connecting with me.
                 </p>
-                {/* <h2>My Booking Calendar</h2> */}
-                <div id="calendar"></div>
 
-                {/* <div className="flex items-center space-x-3">
+                <div className="flex items-center space-x-3">
                   <Phone className="w-5 h-5 text-purple-400" />
                   <span>+1 (555) 123-4567</span>
                 </div>
@@ -417,8 +422,8 @@ function App() {
                     target="_blank"
                   >
                     <Youtube className="w-6 h-6 text-red-500 hover:text-red-400 cursor-pointer transition-colors" />
-                  </a> */}
-                {/* </div> */}
+                  </a>
+                </div>
               </div>
             </div>
 
